@@ -55,12 +55,7 @@ export const VisitHoursSection: React.FC = () => {
               <div className="space-y-2.5">
                 {DALLAS_HOURS.map((item) => {
                   const isToday = item.day === todayName;
-                  const displayValue =
-                    item.day === 'Saturday'
-                      ? '8am – 5pm'
-                      : item.day === 'Monday'
-                      ? 'Closed'
-                      : item.hours || item.hoursDisplay || (item.isClosed ? 'Closed' : '');
+                  const displayValue = item.hoursDisplay || item.hours || (item.isClosed ? 'Closed' : '');
                   return (
                     <div
                       key={item.day}

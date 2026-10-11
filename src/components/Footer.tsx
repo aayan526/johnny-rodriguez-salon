@@ -118,12 +118,7 @@ export const Footer: React.FC<FooterProps> = ({ onBookClick }) => {
             </span>
             <div className="space-y-2 text-xs text-[#8A7A63]">
               {DALLAS_HOURS.map((h) => {
-                const displayValue =
-                  h.day === 'Saturday'
-                    ? '8am – 5pm'
-                    : h.day === 'Monday'
-                    ? 'Closed'
-                    : h.hours || h.hoursDisplay || (h.isClosed ? 'Closed' : '');
+                const displayValue = h.hoursDisplay || h.hours || (h.isClosed ? 'Closed' : '');
                 return (
                   <div key={h.day} className="flex justify-between items-baseline" data-day={h.day}>
                     <span>{`${h.day}: `}</span>
