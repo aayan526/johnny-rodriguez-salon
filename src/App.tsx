@@ -14,6 +14,7 @@ import { Footer } from './components/Footer';
 export default function App() {
   const [selectedServiceId, setSelectedServiceId] = useState<string | undefined>();
   const [selectedStylistId, setSelectedStylistId] = useState<string | undefined>();
+  const [bookingKey, setBookingKey] = useState(0);
 
   const scrollToBooking = () => {
     const el = document.getElementById('booking');
@@ -36,6 +37,9 @@ export default function App() {
 
   const handleBookWithStylist = (stylistId: string) => {
     setSelectedStylistId(stylistId);
+    // Force BookingSection to remount so the preselected stylist is guaranteed
+    // to apply (no reliance on prop-change effects alone).
+    setBookingKey((k) => k + 1);
     scrollToBooking();
   };
 
@@ -65,6 +69,7 @@ export default function App() {
 
         {/* 7. Multi-Step Online Booking Suite (#booking) */}
         <BookingSection
+          key={bookingKey}
           initialServiceId={selectedServiceId}
           initialStylistId={selectedStylistId}
         />
