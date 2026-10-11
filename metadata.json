@@ -1,0 +1,6 @@
+{
+  "name": "Johnny Rodriguez The Salon",
+  "description": "Dallas's premier luxury hair salon at 5403 W Lovers Ln specializing in precision cuts, bespoke balayage, artisan color, and luxury styling.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

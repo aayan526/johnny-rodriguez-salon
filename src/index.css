@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-raleway: 'Raleway', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-raleway);
+  }
+
+  body {
+    font-family: var(--font-raleway);
+    background-color: #14100B;
+    color: #FAF6EE;
+    overflow-x: hidden;
+  }
+
+  /* Section offset for fixed header */
+  section[id], div[id] {
+    scroll-margin-top: 80px;
+  }
+}
+
+/* Custom useReveal animation styles */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Luxury custom scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #14100B;
+}
+::-webkit-scrollbar-thumb {
+  background: #33261C;
+  border: 1px solid #C6A15B33;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C6A15B;
+}
+
+/* Hide scrollbar for tabs */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
