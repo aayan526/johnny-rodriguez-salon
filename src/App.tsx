@@ -14,13 +14,16 @@ import { Footer } from './components/Footer';
 export default function App() {
   const [selectedServiceId, setSelectedServiceId] = useState<string | undefined>();
   const [selectedStylistId, setSelectedStylistId] = useState<string | undefined>();
-  const [bookingKey, setBookingKey] = useState(0);
 
   const scrollToBooking = () => {
-    const el = document.getElementById('booking');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
+    // Defer so React commits any pending state updates first; scrolling to an
+    // element mid-remount gets cancelled when the old DOM node is removed.
+    setTimeout(() => {
+      const el = document.getElementById('booking');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 100);
   };
 
   const scrollToServices = () => {
@@ -37,9 +40,6 @@ export default function App() {
 
   const handleBookWithStylist = (stylistId: string) => {
     setSelectedStylistId(stylistId);
-    // Force BookingSection to remount so the preselected stylist is guaranteed
-    // to apply (no reliance on prop-change effects alone).
-    setBookingKey((k) => k + 1);
     scrollToBooking();
   };
 
@@ -69,7 +69,6 @@ export default function App() {
 
         {/* 7. Multi-Step Online Booking Suite (#booking) */}
         <BookingSection
-          key={bookingKey}
           initialServiceId={selectedServiceId}
           initialStylistId={selectedStylistId}
         />
