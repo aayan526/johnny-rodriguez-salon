@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { SALON_SERVICES } from '../data/salonData';
 
 export const StatsStrip: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -23,7 +24,7 @@ export const StatsStrip: React.FC = () => {
             const startTime = performance.now();
 
             const targetYears = 25;
-            const targetServices = 15;
+            const targetServices = SALON_SERVICES.length;
             const targetLocations = 2;
 
             const updateCounters = (currentTime: number) => {

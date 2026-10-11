@@ -289,7 +289,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                 Step 1: Choose Your Signature Service
               </span>
               <span className="text-xs text-[#8A7A63]">
-                15 services available
+                {SALON_SERVICES.length} services available
               </span>
             </div>
 
@@ -679,7 +679,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
             </div>
 
             <p className="text-xs text-[#8A7A63] mb-8 leading-relaxed max-w-md mx-auto">
-              A text and email confirmation will be sent to <span className="text-[#FAF6EE] font-medium">{phone}</span>. Please arrive 10 minutes prior to enjoy our complimentary espresso or sparkling beverage service.
+              A text and email confirmation will be sent to{' '}<span className="text-[#FAF6EE] font-medium">{phone}</span>. Please arrive 10 minutes prior to enjoy our complimentary espresso or sparkling beverage service.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
